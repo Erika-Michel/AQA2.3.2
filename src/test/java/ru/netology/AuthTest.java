@@ -25,7 +25,7 @@ public class AuthTest {
         $("[type=\"text\"]").setValue(registeredUser.getLogin());
         $("[name=\"password\"]").setValue(registeredUser.getPassword());
         $("[data-test-id=\"action-login\"]").click();
-        $("[id = root]").shouldHave(exactText("Личны кабинет"));
+        $("[id = root]").shouldHave(exactText("Личный кабинет"));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class AuthTest {
         $("[name=\"password\"]").setValue(notRegisteredUser.getPassword());
         $("[data-test-id=\"action-login\"]").click();
         $("[class=\"notification__content\"]").shouldBe(visible)
-                .shouldHave(text("Ошибка! Неверно указан логи или пароль"));
+                .shouldHave(text("Ошибка! Неверно указан логин или пароль"));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class AuthTest {
         $("[name=\"password\"]").setValue(blockedUser.getPassword());
         $("[data-test-id=\"action-login\"]").click();
         $("[class=\"notification__content\"]").shouldBe(visible)
-                .shouldHave(text("Пользовател заблокирован"));
+                .shouldHave(text("Пользователь заблокирован"));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class AuthTest {
         $("[name=\"password\"]").setValue(registeredUser.getPassword());
         $("[data-test-id=\"action-login\"]").click();
         $("[class=\"notification__content\"]").shouldBe(visible)
-                .shouldHave(text("Ошибка! Неверно указан логи или пароль"));
+                .shouldHave(text("Ошибка! Неверно указан логин или пароль"));
     }
 
     @Test
@@ -71,6 +71,6 @@ public class AuthTest {
         $("[name=\"password\"]").setValue(wrongPassword);
         $("[data-test-id=\"action-login\"]").click();
         $("[class=\"notification__content\"]").shouldBe(visible)
-                .shouldHave(text("Ошибка! Неверно указан логи или пароль"));
+                .shouldHave(text("Ошибка! Неверно указан логин или пароль"));
     }
 }
